@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Player MP3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        #player {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #trackInfo {
+            margin-bottom: 15px;
+        }
+        #audioPlayer {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="player">
+        <div id="trackInfo">
+            <h2 id="trackTitle">Pilih Lagu</h2>
+            <p id="trackArtist"></p>
+        </div>
+        <audio id="audioPlayer" controls></audio>
+        <div class="controls">
+            <button onclick="prevTrack()">Sebelumnya</button>
+            <button onclick="nextTrack()">Berikutnya</button>
+        </div>
+        <div id="playlist"></div>
+    </div>
+
+    <script>
+        // Data lagu dalam format JSON
+        const tracks = [
+            {
+                "title": "Al-Fatehah",
+                "artist": "AR RIFAI",
+                "src": "1.mp3"
+            },
+            {
+                "title": "Selamat Tinggal",
+                "artist": "Sheila On 7",
+                "src": "https://example.com/selamat-tinggal.mp3"
+            },
+            {
+                "title": "Aku Milikmu",
+                "artist": "Peterpan",
+                "src": "https://example.com/aku-milikmu.mp3"
+            }
+        ];
+
+        let currentTrackIndex = 0;
+        const audioPlayer = document.getElementById('audioPlayer');
+        const trackTitle = document.getElementById('trackTitle');
+        const trackArtist = document.getElementById('trackArtist');
+        const playlist = document.getElementById('playlist');
+
+        // Fungsi untuk memuat lagu
+        function loadTrack(index) {
+            const track = tracks[index];
+            audioPlayer.src = track.src;
+            trackTitle.textContent = track.title;
+            trackArtist.textContent = track.artist;
+        }
+
+        // Fungsi untuk lagu berikutnya
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            loadTrack(currentTrackIndex);
+            audioPlayer.play();
+        }
+
+        // Fungsi untuk lagu sebelumnya
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+            loadTrack(currentTrackIndex);
+            audioPlayer.play();
+        }
+
+        // Membuat daftar putar
+        function createPlaylist() {
+            tracks.forEach((track, index) => {
+                const trackElement = document.createElement('div');
+                trackElement.textContent = `${track.title} - ${track.artist}`;
+                trackElement.onclick = () => {
+                    currentTrackIndex = index;
+                    loadTrack(currentTrackIndex);
+                    audioPlayer.play();
+                };
+                trackElement.style.cursor = 'pointer';
+                trackElement.style.padding = '10px';
+                trackElement.style.borderBottom = '1px solid #ddd';
+                playlist.appendChild(trackElement);
+            });
+        }
+
+        // Memuat lagu pertama dan membuat daftar putar saat halaman dimuat
+        audioPlayer.addEventListener('ended', nextTrack);
+        loadTrack(currentTrackIndex);
+        createPlaylist();
+    </script>
+</body>
+</html>

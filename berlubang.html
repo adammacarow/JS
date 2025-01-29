@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Cara 1 - Menggunakan String
+let row = 5;
+let col = 5;
+let str = "";
+for (let i = 1; i <= row; i++) {
+    for (let j = 1; j <= col; j++) {
+        if (i == 1 || i == row || j == 1 || j == col) {
+            str += "* ";  // Tambahkan spasi setelah *
+        } else {
+            str += "  ";  // Dua spasi untuk sejajar 
+        }
+    }
+    str += "\n";
+}
+console.log(str);
+
+// Cara 2 - Menggunakan Array (lebih mudah dibaca)
+let n = 5;
+let pattern = [];
+
+// Buat array 2D dan isi dengan spasi
+for (let i = 0; i < n; i++) {
+    pattern[i] = new Array(n).fill("  ");
+}
+
+// Isi baris pertama dan terakhir
+for (let i = 0; i < n; i++) {
+    pattern[0][i] = "* ";
+    pattern[n-1][i] = "* ";
+}
+
+// Isi kolom pertama dan terakhir
+for (let i = 0; i < n; i++) {
+    pattern[i][0] = "* ";
+    pattern[i][n-1] = "* ";
+}
+
+// Print pattern
+for (let i = 0; i < n; i++) {
+    console.log(pattern[i].join(""));
+}
+    </script>
+</body>
+</html>

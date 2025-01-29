@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Al-Quran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #f4f4f4;
+        }
+        #player {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #trackInfo {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #audioPlayer {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #qariList {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .qari-item {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .qari-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="player">
+        <div id="trackInfo">
+            <h2 id="trackTitle">Pilih Qari</h2>
+            <p id="trackDetails"></p>
+        </div>
+        <audio id="audioPlayer" controls></audio>
+        <div id="qariList"></div>
+    </div>
+
+    <script>
+        // Data dari JSON yang diberikan
+        const qariData = {
+            qariList: [
+                {
+                    id: 1,
+                    name: "Abdul Basit Murattal",
+                    bitrate: "64kbps",
+                    subfolder: "Abdul_Basit_Murattal_64kbps"
+                },
+                // Tambahkan qari lainnya dari JSON
+                {
+                    id: 7,
+                    name: "Abdurrahmaan As-Sudais",
+                    bitrate: "64kbps",
+                    subfolder: "Abdurrahmaan_As-Sudais_64kbps"
+                }
+                // ... qari lainnya
+            ]
+        };
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const trackTitle = document.getElementById('trackTitle');
+        const trackDetails = document.getElementById('trackDetails');
+        const qariListContainer = document.getElementById('qariList');
+
+        // Fungsi untuk membuat daftar qari
+        function createQariList() {
+            qariData.qariList.forEach(qari => {
+                const qariElement = document.createElement('div');
+                qariElement.className = 'qari-item';
+                qariElement.innerHTML = `
+                    <strong>${qari.name}</strong>
+                    <br>
+                    <small>Bitrate: ${qari.bitrate}</small>
+                `;
+                qariElement.onclick = () => selectQari(qari);
+                qariListContainer.appendChild(qariElement);
+            });
+        }
+
+        // Fungsi untuk memilih qari
+        function selectQari(qari) {
+            trackTitle.textContent = qari.name;
+            trackDetails.textContent = `Bitrate: ${qari.bitrate}`;
+            
+            // Contoh URL - sesuaikan dengan struktur direktori Anda
+            const sampleSurah = "001"; // Misalnya Surah Al-Fatihah
+            audioPlayer.src = `path/to/quran/${qari.subfolder}/${sampleSurah}.mp3`;
+            
+            audioPlayer.play();
+        }
+
+        // Inisialisasi
+        createQariList();
+    </script>
+</body>
+</html>

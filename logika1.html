@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logika1</title>
+</head>
+
+<body>
+    <script>
+        function findLeaders(arr) {
+            const n = arr.length;
+            const leaders = [];
+
+            // Elemen paling kanan selalu menjadi leader
+            let maxFromRight = arr[n - 1];
+            leaders.push(maxFromRight);
+
+            // Mengecek setiap elemen dari kanan ke kiri
+            for (let i = n - 2; i >= 0; i--) {
+                if (arr[i] > maxFromRight) {
+                    leaders.push(arr[i]);
+                    maxFromRight = arr[i];
+                }
+            }
+
+            // Mengembalikan leaders dalam urutan dari kiri ke kanan
+            return leaders.reverse();
+        }
+
+        // Test cases
+        function testLeaders() {
+            // Test case 1
+            const arr1 = [9, 21, 8, 13, 3, 7, 5];
+            console.log("Input:", arr1);
+            console.log("Output:", findLeaders(arr1).join(" ")); // 21 13 7 5
+
+            // Test case 2
+            const arr2 = [6, 14, 17, 3, 12, 4, 7];
+            console.log("\nInput:", arr2);
+            console.log("Output:", findLeaders(arr2).join(" ")); // 17 12 7
+        }
+
+        // Menjalankan test
+        testLeaders();
+    </script>
+</body>
+
+</html>

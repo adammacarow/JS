@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc</title>
+
+</head>
+
+<body>
+    <script>
+        function createHollowSquare(size) {
+            if (size < 2) {
+                console.log("Ukuran harus minimal 2");
+                return;
+            }
+
+            for (let row = 0; row < size; row++) {
+                let pattern = "";
+
+                for (let col = 0; col < size; col++) {
+                    // Cetak karakter '*' di tepi, dan kosong di bagian tengah
+                    if (row === 0 || row === size - 1 || col === 0 || col === size - 1) {
+                        pattern += "* ";
+                    } else {
+                        pattern += "  "; // Kosong di bagian tengah
+                    }
+                }
+
+                console.log(pattern);
+            }
+        }
+
+        // Contoh penggunaan:
+        const size = 5;
+        createHollowSquare(size);
+
+    </script>
+</body>
+</html>
