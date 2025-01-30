@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+cursor: none
+}
+body {
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.loading {
+background-color: #ffffff;
+display: fixed
+}
+.loading img {
+display: block;
+min-width: 200px;
+min-height: 209px;
+}
+.mouse {
+height: 25px;
+width: 25px;
+border-radius: 100%;
+background-color: #fff782;
+position: absolute;
+animation: mouseAnimation .5s infinite ease-in-out alternate;
+left: 0;
+top: 0
+}
+@keyframes mouseAnimation {
+from {
+width: 25px;
+height: 25px
+}
+to {
+width: 15px;
+height: 15px
+}
+}
+    </style>
+</head>
+<body>
+    
+        <div class="loading">
+        <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+        </div>
+        <div class="mouse original"></div>
+        <script>
+            var mouse = document.querySelector('.mouse');
+            document.addEventListener('mousemove', function(e){
+                var x = e.clientX;
+                var y = e.clientY;
+                mouse.style.left = x + 'px';
+                mouse.style.top = y + 'px';
+            });
+        </script>
+</body>
+</html>
