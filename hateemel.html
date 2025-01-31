@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>marabuka</title>
+    <HTML lang="en">
+    <style>
+        body {
+            background-color: #0066FF;
+            color: #66FF00
+        }
+
+        .scrolling-text {
+            animation: scroll-left 20s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1 id="h1" style="white">
+        <marquee direction="up">h1</marquee>
+    </h1>
+    <h2 id="h2">
+        <marquee direction="down">h2</marquee>
+    </h2>
+    <h3 id="h3">h3</h3>
+    <marquee direction="left">test</marquee>
+    <marquee direction="right">test</marquee>
+
+    <div class="scrolling-text">
+        Ini adalah teks bergerak menggunakan CSS modern
+    </div>
+
+
+    <!-- Scroll (default) - bergerak dari kanan ke kiri -->
+    <marquee behavior="scroll">
+        Ini adalah teks yang bergerak dari kanan ke kiri
+    </marquee>
+
+    <!-- Slide - bergerak lalu berhenti -->
+    <marquee behavior="slide" direction="right">
+        Teks ini akan bergerak ke kanan dan berhenti
+    </marquee>
+
+    <!-- Alternate - bergerak bolak-balik -->
+    <marquee behavior="alternate" scrollamount="10">
+        Teks ini akan bergerak bolak-balik lebih cepat
+    </marquee>
+
+    <!-- Menggunakan berbagai atribut -->
+    <marquee behavior="scroll" direction="left" scrollamount="5" scrolldelay="100" loop="3" bgcolor="#f0f0f0"
+        width="500" height="50">
+        Teks ini memiliki background abu-abu, bergerak lebih lambat, dan akan berulang 3 kali
+    </marquee>
+
+    <!-- Vertikal - bergerak ke atas -->
+    <marquee behavior="scroll" direction="up" height="100">
+        Teks ini akan bergerak ke atas
+    </marquee>
+
+    <!-- None - teks statis -->
+    <marquee behavior="none">
+        Teks ini tidak akan bergerak
+    </marquee>
+
+    <script>
+        let h1 = document.querySelector("h1").style.color = "red";
+
+
+        let h2 = document.querySelector("h2").style.color = "blue";
+        let h3 = document.querySelector("h3").style.color = "yellow";
+    </script>
+
+</body>
+
+</html>
