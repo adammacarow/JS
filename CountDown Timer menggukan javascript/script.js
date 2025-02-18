@@ -35,7 +35,7 @@ function pauseTimer() {
     clearInterval(timerId);
     timerId = null;
 }
-
+// reset timer
 function resetTimer() {
     clearInterval(timerId);
     timerId = null;
