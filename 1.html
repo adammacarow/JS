@@ -5,21 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>doc</title>
-
+  
 </head>
 
 <body>
-    <div>
-        <h1>
-            Permulaan#
-        </h1>
-    </div>
     <script>
-       function kuadrat(angka){
-        return angka * angka;
-       }
-let angka = 5;
-console.log(kuadrat(angka));
+        class Siswa {
+            namaSekolah = "SD 1";
+            constructor(nama){
+                console.log(`nama saya adalah ${nama}`);
+                this.nama = nama;
+            }
+            halo(){
+                document.write(`halo`);
+            }
+        }
+
+        let siswa = new Siswa("budis");
+        console.log(siswa.namaSekolah);
+        siswa.halo();
+        
     </script>
 </body>
+
 </html>

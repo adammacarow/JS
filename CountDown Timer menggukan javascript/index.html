@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="timer-container">
+        <h2>Countdown Timer</h2>
+        <div class="controls">
+            <input type="number" id="minutes" placeholder="Min" min="0" max="99">
+            <input type="number" id="seconds" placeholder="Sec" min="0" max="59">
+        </div>
+        <div class="display" id="timer">00:00</div>
+        <div class="controls">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

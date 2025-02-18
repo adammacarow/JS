@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+      const arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const arry2 = arry.map((num) => {
+            return num * 2;
+        });
+
+        if (arry2[0] === 2 && arry2[1] === 4 && arry2[2] === 6 && arry2[3] === 8 && arry2[4] === 10 && arry2[5] === 12 && arry2[6] === 14 && arry2[7] === 16 && arry2[8] === 18 && arry2[9] === 20) {
+            console.log('正解です');
+        } else {
+            console.log('不正解です');
+        }
+        console.log(arry2);
+        console.log(arry);
+    </script>
+</body>
+
+</html>
