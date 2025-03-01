@@ -2,23 +2,73 @@
 <html>
 <head>
     <title>timer</title>
-    <link rel="stylesheet" href="style.css">
+<style>
+body {
+background: #000066;
+color: #FFFFFF;
+font-family: 'Courier New', Courier, monospace;
+font-size: 30px;
+text-align: left;
+margin: 5px;
+padding: 10px;
+
+}
+
+.persegi-panjang {
+            width: 30px;
+            height: 25px;
+            background-color: #3498db;
+            border: 2px solid #409208;
+            border-radius: 5px;
+            margin: 50px auto;
+        }
+
+.jj {
+    font-size: 30px;
+    color: #a0bbee8a;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border: #000066;
+    border-radius: 5px;
+    background: #000066;
+}
+</style>
 </head>
 <body>
-    <div class="timer-container">
-        <h2>Countdown Timer</h2>
-        <div class="controls">
-            <input type="number" id="minutes" placeholder="Min" min="0" max="99">
-            <input type="number" id="seconds" placeholder="Sec" min="0" max="59">
-        </div>
-        <div class="display" id="timer">00:00</div>
-        <div class="controls">
-            <button onclick="startTimer()">Start</button>
-            <button onclick="pauseTimer()">Pause</button>
-            <button onclick="resetTimer()">Reset</button>
-        </div>
+    
+    <h1 style="background-color: #3f34db; text-align: center;">Membuat <span style="color: #409208;">Shot</span> </h1>
+    <p>satu</p>
+    <p>dua</p>
+    <p>tiga</p>
+    <div id="empat">
+        <ul>
+            <li>empat</li>
+            <li>lima</li>
+            <li>enam</li>
+        </ul>
     </div>
+    <menu>
+        <li id="coffee">Coffee</li>
+        <li id="tea">Tea</li>
+        <li id="milk">Milk</li>
+      </menu>
 
-    <script src="script.js"></script>
+<div>
+    <pre>
+        <div class="jj">Time Remaining:</div>
+        <span id="hours">00</span>
+    </pre>
+</div>
+    <div class="persegi-panjang"></div>
+    
+<div id="batok">botak</div>
+
+
+    <!-- <script src="script.js"></script> -->
+    <script src="main.js"></script>
+
 </body>
 </html>
