@@ -1,0 +1,74 @@
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Sistem Manajemen Peternakan</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            max-width: 800px;  
+            margin: auto;  
+            padding: 20px;  
+        }  
+        .ternak-card {  
+            border: 1px solid #ddd;  
+            padding: 10px;  
+            margin: 10px 0;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>Manajemen Peternakan Pintar</h1>  
+    
+    <div id="daftar-ternak"></div>  
+    
+    <button onclick="tambahTernak()">Tambah Ternak Baru</button>  
+
+    <script>  
+        class Ternak {  
+            constructor(nama, jenis, berat) {  
+                this.nama = nama;  
+                this.jenis = jenis;  
+                this.berat = berat;  
+                this.tanggal = new Date();  
+            }  
+        }  
+
+        let daftarTernak = [];  
+
+        function tambahTernak() {  
+            const nama = prompt("Masukkan nama ternak:");  
+            const jenis = prompt("Masukkan jenis ternak (sapi/kambing/domba):");  
+            const berat = parseFloat(prompt("Masukkan berat ternak (kg):"));  
+
+            const ternakBaru = new Ternak(nama, jenis, berat);  
+            daftarTernak.push(ternakBaru);  
+            
+            renderDaftarTernak();  
+        }  
+
+        function renderDaftarTernak() {  
+            const kontainer = document.getElementById('daftar-ternak');  
+            kontainer.innerHTML = '';  
+
+            daftarTernak.forEach((ternak, index) => {  
+                const kartTernak = document.createElement('div');  
+                kartTernak.classList.add('ternak-card');  
+                kartTernak.innerHTML = `  
+                    <h3>${ternak.nama}</h3>  
+                    <p>Jenis: ${ternak.jenis}</p>  
+                    <p>Berat: ${ternak.berat} kg</p>  
+                    <p>Tanggal Masuk: ${ternak.tanggal.toLocaleDateString()}</p>  
+                    <button onclick="hapusTernak(${index})">Hapus</button>  
+                `;  
+                kontainer.appendChild(kartTernak);  
+            });  
+        }  
+
+        function hapusTernak(index) {  
+            daftarTernak.splice(index, 1);  
+            renderDaftarTernak();  
+        }  
+    </script>  
+</body>  
+</html>  

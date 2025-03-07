@@ -1,0 +1,31 @@
+body {
+    background: #000066;
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    text-align: left;
+    margin: 5px;
+    padding: 10px;
+}
+
+.persegi-panjang {
+    width: 30px;
+    height: 25px;
+    background-color: #3498db;
+    border: 2px solid #409208;
+    border-radius: 5px;
+    margin: 50px auto;
+}
+
+.jj {
+    font-size: 30px;
+    color: #a0bbee8a;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border: #000066;
+    border-radius: 5px;
+    background: #000066;
+}
