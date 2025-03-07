@@ -14,9 +14,9 @@
     <p style="color: #0400fa; background-color: #ac2d2d; border-radius: 30px; text-align: center;">tiga</p>
     <div id="empat">
         <ul>
-            <li>empat</li>
-            <li>lima</li>
-            <li>enam</li>
+            <li> Ke <span style="color: red; background-color: aliceblue;">empat</span></li>
+            <li> Ke <span style="color: blue; background-color: aliceblue;">lima</span></li>
+            <li> Ke <span style="color: green; background-color: aliceblue;">lima</span></li>
         </ul>
     </div>
     <menu>
@@ -34,6 +34,13 @@
  
 
     <div id="batok">botak</div>
+
+    <p>Klik untuk mengubah warna: <span id="ubahWarna">Teks ini</span></p>
+<script>
+    document.getElementById("ubahWarna").onclick = function() {
+        this.style.color = "blue";
+    };
+</script>
 
 
     <!-- <script src="script.js"></script> -->
